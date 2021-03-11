@@ -124,4 +124,22 @@ class User extends Authenticatable
     {
         return $this->belongsToMany(Role::class);
     }
+
+    /**
+ * Get the stores for the user
+ */
+public function stores()
+{
+    return $this->belongsToMany('App\Models\Store', 'store_users');
+}
+
+/**
+ * Get the providers for the user
+ */
+public function providers()
+{
+    return $this->hasMany('App\Models\UserProvider');
+}
+
+
 }
